@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ShopController@index');
+
+Route::get('/serch', 'ShopController@serch');
+Route::get('/serch/random', 'SerchController@randomshow');
+
+Route::get('/shop', 'ShopController@show');
+Route::get('/shop/show', 'SerchController@showserch');
+Route::get('/shop/show/{shop}', 'ShopController@showall');
