@@ -16,4 +16,15 @@ class Shop extends Model
     // {
     //     return $this->orderBy('money', 'desc')->paginate(5);
     // }
+    
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+    
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+    
 }

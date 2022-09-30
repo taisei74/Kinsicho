@@ -28,4 +28,10 @@ Route::get('/shop/show/{shop}', 'ShopController@showall');
 Route::get('/shop/show/{shop}/edit', 'ShopController@edit');
 Route::put('/shop/show/{shop}', 'ShopController@update');
 
-Route::get('/favorite' , 'ShopController@showFavorite');
+Route::get('/favorite' , 'LikeController@showFavorite');
+
+Route::get('/reply/like/{shop}', 'LikeController@like')->name('like');
+Route::get('/reply/unlike/{shop}', 'LikeController@unlike')->name('unlike');
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

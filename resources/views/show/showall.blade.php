@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+@section('content')
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -23,9 +26,39 @@
                 <h4>{{ $shop->body }}</h4>
             </div>
          
+         
+         <span>
+<img src="{{asset('img/nicebutton.png')}}" width="30px">
+ 
+<!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
+@if($like)
+<!-- 「いいね」取消用ボタンを表示 -->
+	<a href="{{ route('unlike', $shop) }}" class="btn btn-success btn-sm">
+		いいね
+		<!-- 「いいね」の数を表示 -->
+		<span class="badge">
+			{{ $shop->likes->count() }}
+		</span>
+	</a>
+@else
+<!-- まだユーザーが「いいね」をしていなければ、「いいね」ボタンを表示 -->
+	<a href="{{ route('like', $shop) }}" class="btn btn-secondary btn-sm">
+		いいね
+		<!-- 「いいね」の数を表示 -->
+		<span class="badge">
+			{{ $shop->likes->count() }}
+		</span>
+	</a>
+@endif
+</span>
+
+
+
+
         </div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>
     </body>
 </html>
+@endsection
