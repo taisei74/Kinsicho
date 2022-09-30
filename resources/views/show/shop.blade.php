@@ -11,7 +11,7 @@
     </head>
     <body>
               <h1>検索結果</h1>
-        @if(isset($shops))
+       
         <table class="table">
           <tr>
             <th>店名</th><th>金額</th>
@@ -22,10 +22,9 @@
             </tr>
           @endforeach
         
-        @endif
-        @if(!empty($message))
-        <div class="alert alert-primary" role="alert">{{ $message}}</div>
-        @endif
+        
+  
+           {{ $shops->appends(request()->input())->links() }}
         </div>
     </body>
 </html>

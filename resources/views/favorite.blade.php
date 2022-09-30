@@ -10,15 +10,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
-          <h1>検索条件を入力してください</h1>
-        <form action='/serch/random' method="POST">
-        @csrf
-        @method('GET')
-        <label for="title">予算</label>
-         <input type='serch' class="form-control" name='money'>
-         
-         <input type="submit" value="送信"/>
-         </form>
-         <a href='/'>ホームに戻る</a>
+        <h1>お気に入り一覧</h1>
     </body>
 </html>

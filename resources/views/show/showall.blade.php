@@ -11,6 +11,7 @@
 
     </head>
     <body>
+        <p><a href='/shop/show/{{ $shop->id }}/edit'>編集</a></p>
         <h1 class="title">
             {{ $shop->name }}
         </h1>
@@ -21,6 +22,7 @@
                 <h3>紹介</h3>
                 <h4>{{ $shop->body }}</h4>
             </div>
+         
         </div>
         <div class="footer">
             <a href="/">戻る</a>

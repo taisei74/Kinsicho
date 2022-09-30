@@ -13,10 +13,10 @@ class SerchController extends Controller
         
          if($keyword_money) {
              $query = Shop::query();
-             $shops = $query->where('money','<=', $keyword_money)->get();
+             $shops = $query->where('money','<=', $keyword_money)->paginate(5);
     
              $message = $keyword_money."円以下の検索が完了しました。";
-             return view('shop')->with([
+             return view('show/shop')->with([
                  'shops' => $shops,
                  'message' => $message,
                  ]);
@@ -24,7 +24,7 @@ class SerchController extends Controller
 
          else {
              $message = "検索結果はありません。";
-             return view('/serch')->with(['message' => $message]);
+             return view('random/serch')->with(['message' => $message]);
          }
     }
     
@@ -51,28 +51,35 @@ class SerchController extends Controller
             
             $sho = ($randoms)->toArray();
             $shops_total = array_sum(array_column($sho, 'money'));
-         
+        //  print_r($shops_total);
               if( $shops_total <= $integer){
                   $check = 1;
-                 
+                //   print_r('@@@@@@@@');
+                //  print_r($check);
               }else{
+                //   print_r('********');
                   $check = 0;
+                //   dd($check);
               }
-            
-             dump($check);
-             
+         }
+            //  dump($check);
+         }
              $message_random = $keyword_money_random."円以下の検索が完了しました。";
+            //  print_r('11111111111');
+            //  print_r($shops_total);
+            //  print_r('22222222222');
+            //  print_r($message_random);
              return view('random/random')->with([
                  'randoms' => $randoms,
                  'total' => $shops_total,
                  'message_random' => $message_random,
                  ]);
-         }
+         
 
         //  else {
         //      $message = "検索結果はありません。";
         //      return view('/serch')->with(['message' => $message]);
         //  }
     }
-}
+
 }
