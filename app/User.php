@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function likes()
+    {
+        return $this->hasMany('App\Like');
+    }
+    
+    public function shops()
+    {
+        return $this->hasMany('App\Shop');
+    }
+    
+   public function like_shops()
+   {
+       return $this->belongsToMany(Shop::class, 'likes', 'user_id', 'shop_id');
+   }
+    
 }

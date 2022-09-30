@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Shop;
+use App\Like;
+
 class ShopController extends Controller
 {
     public function top()
@@ -28,7 +30,10 @@ class ShopController extends Controller
     }
     public function showall(Shop $shop)
     {
-        return view('show/showall')->with(['shop' => $shop]);
+        $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
+        
+        
+        return view('show/showall')->with(['shop' => $shop, 'like'=>$like]);
     }
     
     public function createShow()
@@ -55,8 +60,4 @@ class ShopController extends Controller
         return redirect('/shop/show/' . $shop->id);
     }
     
-    public function showFavorite()
-    {
-        return view('favorite');
-    }
 }
