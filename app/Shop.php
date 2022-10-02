@@ -26,5 +26,8 @@ class Shop extends Model
     {
         return $this->hasMany('App\Like');
     }
-    
+    public function genres()
+    {
+        return $this->belongsToMany('App\Genre');
+    }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Shop;
 use App\Like;
+use App\Genre;
 
 class ShopController extends Controller
 {
@@ -36,27 +37,36 @@ class ShopController extends Controller
         return view('show/showall')->with(['shop' => $shop, 'like'=>$like]);
     }
     
-    public function createShow()
+    public function createShow(Genre $genre)
     {
-        return view('create');
+
+        // dd($genre->get());
+        return view('create')->with(['genres' => $genre->get()]);
     }
     
     public function create(Shop $shop, Request $request)
     {
-        $input = $request['shop'];
-        $shop->fill($input)->save();
+        $input_shop = $request['shop'];
+        $input_genres = $request->genres_array;
+        
+        $shop->fill($input_shop)->save();
+        $shop->genres()->attach($input_genres);
+        // dd($genre);
         return redirect('/shop/show/' . $shop->id);
     }
     
-    public function edit(Shop $shop)
+    public function edit(Shop $shop,Genre $genre)
     {
-        return view('edit')->with(['shop' => $shop]);
+        return view('edit')->with(['shop' => $shop, 'genres' => $genre->get()]);
     }
     
     public function update(Shop $shop, Request $request)
     {
         $input_edit = $request['shop'];
+        $input_editgenres = $request->genres_array;
         $shop->fill($input_edit)->save();
+         $shop->genres()->attach($input_editgenres);
+       
         return redirect('/shop/show/' . $shop->id);
     }
     

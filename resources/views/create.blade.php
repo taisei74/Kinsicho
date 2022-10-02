@@ -22,6 +22,15 @@
                     <label>金額登録</label>
                     <input type="text" name="shop[money]" placeholer="例:2000円"/>
                 </div>
+                <h2>ジャンル登録</h2>
+                @foreach($genres as $genre)
+                <label>
+                   
+                <input type="checkbox" value="{{ $genre->id }}" name="genres_array[]">
+                {{ $genre->genre_name }}
+                </input>
+                </label>
+                @endforeach
             <button type='submit'>送信</button>
             </form>
     </div>

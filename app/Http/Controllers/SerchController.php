@@ -10,6 +10,7 @@ class SerchController extends Controller
      public function showserch(Request $request)  //予算以下の検索をする
     {
          $keyword_money = $request->money;
+         
         
          if($keyword_money) {
              $query = Shop::query();
