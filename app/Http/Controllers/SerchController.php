@@ -10,22 +10,50 @@ class SerchController extends Controller
      public function showserch(Request $request)  //予算以下の検索をする
     {
          $keyword_money = $request->money;
+         $keyword_genre = $request->genre_name;
+         $query = Shop::query();
         
-         if($keyword_money) {
-             $query = Shop::query();
-             $shops = $query->where('money','<=', $keyword_money)->paginate(5);
+        
+        //   dd($keyword_genre);
+         if(!empty($keyword_money) &&!empty($keyword_genre)) {
+              $shops = $query->where('money','<=', $keyword_money)
+                            ->whereHas('genres', function($q) use($keyword_genre){
+                                $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
+            
+          dump($shops);
+            //  $message = $keyword_money."円以下の検索が完了しました。";
+            //  return view('show/shop')->with([
+            //      'shops' => $shops,
+            //      'genre' => $genre,
+            //      'message' => $message,
+            //      ]);
+         }elseif(!empty($keyword_money) && empty($keyword_genre)) {
+            
+             $shops = $query->where('money', '<=', $keyword_money)->paginate(10);
+             
+         }elseif(empty($keyword_money) && !empty($keyword_genre)) {
+             
+            //  $query_genre = Genre::query();
+            //  $genres = $query_genre->where('ganre_name', 'like', '%'.$keyword_genre.'%')->paginate(10);
+             $shops = $query->whereHas('genres', function($q) use($keyword_genre){
+                                $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
+                                
+                                
+             }
     
-             $message = $keyword_money."円以下の検索が完了しました。";
-             return view('show/shop')->with([
-                 'shops' => $shops,
-                 'message' => $message,
-                 ]);
-         }
+     
 
-         else {
-             $message = "検索結果はありません。";
-             return view('random/serch')->with(['message' => $message]);
-         }
+         
+           return view('show/shop')->with([
+                 'shops' => $shops,
+                 
+                 ]);
+         
+
+        //  else {
+        //      $message = "検索結果はありません。";
+        //      return view('random/serch')->with(['message' => $message]);
+        //  }
     }
     
     

@@ -25,6 +25,14 @@
                 <h3>紹介</h3>
                 <input tupe='text' name='shop[body]' value='{{ $shop->body }}'/>
             </div>
+            @foreach($genres as $genre)
+            <label>
+                   
+                <input type="checkbox" value="{{ $genre->id }}" name="genres_array[]">
+                {{ $genre->genre_name }}
+                </input>
+                </label>
+                @endforeach
             <button type='submit'>編集完了</button>
             </form>
         </div>

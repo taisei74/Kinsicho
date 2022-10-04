@@ -16,6 +16,7 @@
         @method('GET')
         <label for="title">予算</label>
          <input type='serch' class="form-control" name='money'>
+        
          
          <input type="submit" value="送信"/>
          </form>
@@ -26,8 +27,16 @@
         @csrf
         @method('GET')
         <label for="title">予算</label>
-     <input type='serch' class="form-control" name='money'>
-         
+        <input type='serch' class="form-control" name='money'>
+          <div>
+             @foreach($genres as $genre)
+             <label>
+                 <input type='checkbox'  value="{{ $genre->genre_name }}" name="genre_name">
+                 {{ $genre->genre_name }}
+                 </input>
+             </label>
+             @endforeach
+         </div>
          <input type="submit" value="送信"/>
          </form>
          </div>
