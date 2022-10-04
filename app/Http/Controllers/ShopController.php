@@ -14,9 +14,9 @@ class ShopController extends Controller
         return view('top');
     }
     
-    public function serch()
+    public function serch(Genre $genre)
     {
-        return view('index');
+        return view('index')->with(['genres' => $genre->get()]);
     }
     
     
