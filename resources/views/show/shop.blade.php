@@ -18,7 +18,7 @@
           </tr>
           @foreach($shops as $shop)
             <tr>
-             <td> <a href='/shop/show/{{ $shop->id }}'>{{$shop->name}}</a></td><td>{{$shop->money }}円</td>
+             <td> <a href='/shop/show/{{ $shop->id }}'>{{ $shop->name }}</a></td><td>{{ $shop->money }}円</td>
             </tr>
           @endforeach
         

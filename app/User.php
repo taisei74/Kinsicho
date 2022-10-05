@@ -52,4 +52,8 @@ class User extends Authenticatable
        return $this->belongsToMany(Shop::class, 'likes', 'user_id', 'shop_id');
    }
     
+    public function plans()
+    {
+        return $this->hasMany('App\Plan');
+    }
 }

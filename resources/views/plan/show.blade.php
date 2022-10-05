@@ -9,18 +9,15 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
-    <div>
-        <div>
     <body>
-        <h2>
-     @foreach($shops as $shop)
-     {{ $shop->name }}
-     @endforeach
-     </h2>
-    </body>
-    </div>
     <div>
-        <h2><a href='/favorite/plan'>プラン作成</a></h2>
+       <h1>
+    
+        {{ $plan->plan_name }}
+       </h1>
+       @foreach($plan->plan_shops as $shop)
+       <h1>{{ $shop->name }}</h1>
+       @endforeach
     </div>
-    </div>
+    </body>
 </html>
