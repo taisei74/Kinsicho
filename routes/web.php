@@ -29,6 +29,9 @@ Route::get('/shop/show/{shop}/edit', 'ShopController@edit');
 Route::put('/shop/show/{shop}', 'ShopController@update');
 
 Route::get('/favorite' , 'LikeController@showFavorite');
+Route::get('/favorite/plan', 'PlanController@plan');
+Route::post('/favorite/plan', 'PlanController@createPlan');
+Route::get('/favorite/plan/{plan}', 'PlanController@show');
 
 Route::get('/reply/like/{shop}', 'LikeController@like')->name('like');
 Route::get('/reply/unlike/{shop}', 'LikeController@unlike')->name('unlike');

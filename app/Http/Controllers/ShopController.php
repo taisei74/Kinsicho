@@ -51,7 +51,9 @@ class ShopController extends Controller
         
         $shop->fill($input_shop)->save();
         $shop->genres()->attach($input_genres);
-        // dd($genre);
+        // dump($shop);
+        
+        //  dd($shop->genres());
         return redirect('/shop/show/' . $shop->id);
     }
     
@@ -66,7 +68,7 @@ class ShopController extends Controller
         $input_editgenres = $request->genres_array;
         $shop->fill($input_edit)->save();
          $shop->genres()->attach($input_editgenres);
-       
+      
         return redirect('/shop/show/' . $shop->id);
     }
     

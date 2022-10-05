@@ -20,7 +20,7 @@ class SerchController extends Controller
                             ->whereHas('genres', function($q) use($keyword_genre){
                                 $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
             
-          dump($shops);
+        //   dump($shops);
             //  $message = $keyword_money."円以下の検索が完了しました。";
             //  return view('show/shop')->with([
             //      'shops' => $shops,

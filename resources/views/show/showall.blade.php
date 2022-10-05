@@ -24,6 +24,7 @@
                 <h4>{{ $shop->money }}円</h4>
                 <h3>紹介</h3>
                 <h4>{{ $shop->body }}</h4>
+             
                 @foreach($shop->genres as $genre)
             
                 お店のジャンルは{{ $genre->genre_name }}

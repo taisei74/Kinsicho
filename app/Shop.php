@@ -30,4 +30,9 @@ class Shop extends Model
     {
         return $this->belongsToMany('App\Genre');
     }
+    
+    public function plans()
+    {
+        return $this->belongsToMany('App\Plan');
+    }
 }
