@@ -4,17 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
-class Like extends Model
+class Plan_Like extends Model
 {
-    // use SoftDeletes;
+    use SoftDeletes;
     
-    public function user()
+    protected $fillable = ['shop_id', 'user_id'];
+    
+    public function plan_user()
     {
         return $this->belongsTo('App\User');
     }
     
-    public function shop()
+    public function plan_shop()
     {
         return $this->belongsTo('App\Shop');
     }

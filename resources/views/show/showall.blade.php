@@ -61,6 +61,13 @@
 
 
         </div>
+        <div>
+            <form action='/shop/show/{{ $shop->id }}' id="form_{{ $shop->id }}" method='POST' style='display:inline'>
+                @csrf
+                @method('DELETE')
+                <button type="submit">削除</button>
+            </form>
+        </div>
         <div class="footer">
             <a href="/">戻る</a>
         </div>

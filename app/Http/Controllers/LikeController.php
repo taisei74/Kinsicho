@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Shop;
 use App\Like;
 use App\User;
+use App\Plan;
+use App\Plan_Like;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class LikeController extends Controller
 {
+ 
+    
     public function like(Shop $shop, Request $request)
     {
         $like=New Like();
@@ -35,8 +39,25 @@ class LikeController extends Controller
     {
         $shops = \Auth::user()->like_shops()->orderBy('created_at', 'desc')->get();
        
-       
-        
         return view('favorite')->with(["shops" => $shops]);
+    }
+    
+    public function plan_like(Plan $plan, Request $request)
+    {
+        $plan_like = new Plan_Like();
+        $plan_like->plan_id = $plan->id;
+        $plan_like->user_id = Auth::user()->id;
+        $plan_like->save();
+        
+        return back();
+    }
+    
+    public function plan_unlike(Plan $plan, Request $request)
+    {
+        $user = Auth::user()->id;
+        $plan_like = Plan_Like::where('plan_id', $plan->id)->where('user_id', $user)->first();
+        $plan_like->delete();
+        
+        return back();
     }
 }

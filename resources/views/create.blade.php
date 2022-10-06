@@ -31,7 +31,9 @@
                 </input>
                 </label>
                 @endforeach
-            <button type='submit'>送信</button>
+                <div>
+                <button type='submit'>送信</button>
+                </div>
             </form>
     </div>
     </body>

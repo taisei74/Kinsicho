@@ -27,14 +27,20 @@ Route::get('/shop/show/{shop}', 'ShopController@showall');
 
 Route::get('/shop/show/{shop}/edit', 'ShopController@edit');
 Route::put('/shop/show/{shop}', 'ShopController@update');
+Route::delete('/shop/show/{shop}', 'ShopController@delete');
 
 Route::get('/favorite' , 'LikeController@showFavorite');
 Route::get('/favorite/plan', 'PlanController@plan');
 Route::post('/favorite/plan', 'PlanController@createPlan');
+Route::get('/favorite/plan/index', 'PlanController@index');
 Route::get('/favorite/plan/{plan}', 'PlanController@show');
+Route::delete('/favorite/plan/{plan}', 'PlanController@delete');
+
 
 Route::get('/reply/like/{shop}', 'LikeController@like')->name('like');
 Route::get('/reply/unlike/{shop}', 'LikeController@unlike')->name('unlike');
+Route::get('/plan/like/{plan}', 'LikeController@plan_like')->name('plan_like');
+Route::get('/plan/unlike/{plan}', 'LikeController@plan_unlike')->name('plan_unlike');
 Auth::routes();
 
 // Route::get('/home', 'HomeController@index')->name('home');

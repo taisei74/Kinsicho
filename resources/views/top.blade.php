@@ -30,7 +30,7 @@
             <h4><a href='/favorite'>お気に入りにした店舗一覧</a></h4>
         </diV>
         <div>
-            <h4><a href='/favorite/plan'>人気プランを一覧にする</a></h4>
+            <h4><a href='/favorite/plan/index'>人気プランを一覧にする</a></h4>
         </div>
     </body>
 </html>
