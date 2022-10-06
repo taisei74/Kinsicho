@@ -9,21 +9,15 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
-    <div>
-        <div>
     <body>
-        <h2>
-     @foreach($shops as $shop)
-     {{ $shop->name }}
-     @endforeach
-     </h2>
+        <div>
+            <h1>プランいいね数ランキング</h1>
+        </div>
+        <div>
+            @foreach($plans as $key => $plan)
+            <h4>{{ $key + 1 }}位<a href='/favorite/plan/{{ $plan->id }}'>{{ $plan->plan_name }}</a>いいね数:{{ $plan->plan_likes->count() }}</h4>
+            @endforeach
+        </div>
+        <a href='/'>戻る</a>
     </body>
-    </div>
-    <div>
-        <h2><a href='/favorite/plan'>プラン作成</a></h2>
-    </div>
-    <div>
-        <h3><a href='/favorite/plan/index'>プランランキング</a></h3>
-    </div>
-    </div>
 </html>

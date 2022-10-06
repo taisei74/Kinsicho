@@ -15,7 +15,10 @@
         <form action='/favorite/plan' method='POST'>
             @csrf
             <div>
-            <input type='text' name='plan[plan_name]' placeholer="プラン名" >
+            <input type='text' name='plan[plan_name]' placeholder="プラン名" >
+            </div>
+            <div>
+                <input type='text' name='plan[plan_body]' placeholder="プラン説明">
             </div>
             <div>
                 @foreach($shops as $shop)

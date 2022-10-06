@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePlansTable extends Migration
+class CreatePlanLikesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePlansTable extends Migration
      */
     public function up()
     {
-        Schema::create('plans', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('plan_name', 200);
-            $table->text('plan_body', 4000);
+        Schema::create('plan__likes', function (Blueprint $table) {
+                $table->bigIncrements('id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('plan_id')->unsigned();
             $table->timestamps();
             
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->softDeletes();
         });
     }
 
@@ -30,6 +30,6 @@ class CreatePlansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('plans');
+        Schema::dropIfExists('plan__likes');
     }
 }

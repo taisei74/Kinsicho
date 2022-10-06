@@ -8,6 +8,7 @@ class Plan extends Model
 {
     protected $fillable = [
         'plan_name',
+        'plan_body',
         ];
     public function user()
     {
@@ -17,5 +18,10 @@ class Plan extends Model
     public function plan_shops()
     {
         return $this->belongsToMany('App\Shop');
+    }
+    
+    public function plan_likes()
+    {
+        return $this->hasMany('App\Plan_Like');
     }
 }

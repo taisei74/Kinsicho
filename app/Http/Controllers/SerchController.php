@@ -12,6 +12,7 @@ class SerchController extends Controller
          $keyword_money = $request->money;
          $keyword_genre = $request->genre_name;
          $query = Shop::query();
+        $message = $keyword_money."円以下の検索が完了しました。";
         
         
         //   dd($keyword_genre);
@@ -46,7 +47,7 @@ class SerchController extends Controller
          
            return view('show/shop')->with([
                  'shops' => $shops,
-                 
+                 'message' => $message,
                  ]);
          
 

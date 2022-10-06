@@ -11,7 +11,7 @@
     </head>
     <body>
               <h1>検索結果</h1>
-       
+       <h2>予算{{ $message }}</h2>
         <table class="table">
           <tr>
             <th>店名</th><th>金額</th>
