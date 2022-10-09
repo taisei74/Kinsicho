@@ -22,6 +22,10 @@
                     <label>金額登録</label>
                     <input type="text" name="shop[money]" placeholer="例:2000円"/>
                 </div>
+                <div>
+                     <label>店舗紹介</label>
+                    <textarea name="shop[body]" placeholer="例:店舗の紹介です。"></textarea>
+                </div>
                 <h2>ジャンル登録</h2>
                 @foreach($genres as $genre)
                 <label>

@@ -9,18 +9,20 @@ class SerchController extends Controller
 {
      public function showserch(Request $request)  //予算以下の検索をする
     {
-         $keyword_money = $request->money;
+         $money = $request->money;
          $keyword_genre = $request->genre_name;
+         $keyword_money = $money[0];
+        //  dd($keyword_money);
          $query = Shop::query();
         $message = $keyword_money."円以下の検索が完了しました。";
         
         
         //   dd($keyword_genre);
-         if(!empty($keyword_money) &&!empty($keyword_genre)) {
+    if(!empty($keyword_money) &&!empty($keyword_genre)) {
               $shops = $query->where('money','<=', $keyword_money)
                             ->whereHas('genres', function($q) use($keyword_genre){
-                                $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
-            
+                            $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
+                            
         //   dump($shops);
             //  $message = $keyword_money."円以下の検索が完了しました。";
             //  return view('show/shop')->with([
@@ -58,10 +60,13 @@ class SerchController extends Controller
     }
     
     
-     public function randomshow(Request $request)  //プランを検索するときにランダムで3個データを取ってくる
+
+    public function randomshow(Request $request)  //プランを検索するときにランダムで3個データを取ってくる
     {
-        $keyword_money_random = $request->money;
-        
+        $key = $request->money;
+        $keyword_money_random =  $key[0];
+       
+        // dd($keyword_money_random);
         $integer = intval($keyword_money_random);
         $check = 0;
         

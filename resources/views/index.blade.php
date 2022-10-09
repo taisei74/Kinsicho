@@ -14,9 +14,13 @@
         <form action='/serch/random' method="POST">
         @csrf
         @method('GET')
-        <label for="title">予算</label>
-         <input type='serch' class="form-control" name='money'>
-        
+        <p>予算</br>
+        <select class="form-control" id="money" name="money[]">
+            <option value="500">500円</option>
+            <option value="1000">1000円</option>
+            <option value="2000">2000円</option>
+            <option value="3000">3000円</option>
+        </select></p>
          
          <input type="submit" value="送信"/>
          </form>
@@ -26,8 +30,15 @@
         <form action='/shop/show' method="POST">
         @csrf
         @method('GET')
-        <label for="title">予算</label>
-        <input type='serch' class="form-control" name='money'>
+        <div>
+        <p>予算</br>
+        <select class="form-control" id="money" name="money[]">
+            <option value="500">500円</option>
+            <option value="1000">1000円</option>
+            <option value="2000">2000円</option>
+            <option value="3000">3000円</option>
+        </select></p>
+        </div>
           <div>
              @foreach($genres as $genre)
              <label>

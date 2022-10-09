@@ -27,7 +27,7 @@ class PlanController extends Controller
         $plan->fill($input_plan)->save();
         $plan->plan_shops()->attach($input_plan_shops);
         // dd($plan->plan_shops);
-        dd($plan);
+        // dd($plan);
         return redirect('/favorite/plan/' . $plan->id);
     }
     
