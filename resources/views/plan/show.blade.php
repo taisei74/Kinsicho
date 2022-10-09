@@ -14,6 +14,7 @@
        <h1>
         {{ $plan->plan_name }}
        </h1>
+       <h3> {{ $plan->plan_body }}</h3>
        @foreach($plan->plan_shops as $shop)
        <h1>店名:{{ $shop->name }}</h1>
        <h1>{{ $shop->money }}円</h1>
