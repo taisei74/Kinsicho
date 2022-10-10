@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
+use App\Http\Requests\ShopRequest;
 use App\Shop;
 use App\Like;
 use App\Genre;
@@ -16,7 +17,7 @@ class ShopController extends Controller
     
     public function serch(Genre $genre)
     {
-        return view('index')->with(['genres' => $genre->get()]);
+        return view('shop.index')->with(['genres' => $genre->get()]);
     }
     
     
@@ -27,24 +28,24 @@ class ShopController extends Controller
     
     public function show()
     {
-        return view('show/show');
+        return view('shop/show');
     }
     public function showall(Shop $shop)
     {
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
         
         
-        return view('show/showall')->with(['shop' => $shop, 'like'=>$like]);
+        return view('shop/showall')->with(['shop' => $shop, 'like'=>$like]);
     }
     
     public function createShow(Genre $genre)
     {
 
         // dd($genre->get());
-        return view('create')->with(['genres' => $genre->get()]);
+        return view('shop.create')->with(['genres' => $genre->get()]);
     }
     
-    public function create(Shop $shop, Request $request)
+    public function create(Shop $shop, ShopRequest $request)
     {
         $input_shop = $request['shop'];
         $input_genres = $request->genres_array;
@@ -59,10 +60,10 @@ class ShopController extends Controller
     
     public function edit(Shop $shop,Genre $genre)
     {
-        return view('edit')->with(['shop' => $shop, 'genres' => $genre->get()]);
+        return view('shop.edit')->with(['shop' => $shop, 'genres' => $genre->get()]);
     }
     
-    public function update(Shop $shop, Request $request)
+    public function update(Shop $shop, ShopRequest $request)
     {
         $input_edit = $request['shop'];
         $input_editgenres = $request->genres_array;

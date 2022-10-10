@@ -17,10 +17,12 @@
                 <div>
                     <label>建物登録</label>
                     <input type='text' name='shop[name]' placeholer="例:錦糸公園"/>
+                    <p class="name__error" style="color:red">{{ $errors->first('shop.name') }}</p>
                 </div>
                 <div>
                     <label>金額登録</label>
                     <input type="text" name="shop[money]" placeholer="例:2000円"/>
+                    <p class="money__error" style="color:red">{{ $errors->first('shop.money') }}</p>
                 </div>
                 <div>
                      <label>店舗紹介</label>

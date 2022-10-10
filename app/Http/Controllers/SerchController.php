@@ -47,7 +47,7 @@ class SerchController extends Controller
      
 
          
-           return view('show/shop')->with([
+           return view('shop/show')->with([
                  'shops' => $shops,
                  'message' => $message,
                  ]);
