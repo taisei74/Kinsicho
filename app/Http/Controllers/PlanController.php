@@ -15,7 +15,7 @@ class PlanController extends Controller
     {
          $shops = \Auth::user()->like_shops()->orderBy('created_at', 'desc')->get();
          
-        return view('plan')->with(['shops' => $shops]);
+        return view('plan.create')->with(['shops' => $shops]);
     }
     
     public function createPlan(Plan $plan, Request $request)
