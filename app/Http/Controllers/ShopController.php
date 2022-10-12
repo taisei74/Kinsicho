@@ -2,14 +2,19 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use Illuminate\Http\Request;
 use App\Http\Requests\ShopRequest;
 use App\Shop;
 use App\Like;
 use App\Genre;
-
+use Illuminate\Support\Str;
 class ShopController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->authorizeResource(Shop::class, 'shop');
+    // }
+    
     public function top()
     {
         return view('top');
@@ -47,14 +52,45 @@ class ShopController extends Controller
     
     public function create(Shop $shop, ShopRequest $request)
     {
+        
+    //     $image = $request->file('image');
+        
+    //     $path = isset($image) ? $image->store('shops', 'public') : '';
+    //     dd($path);
+    //   $shop = Shop::create([
+    //         'name' => $request->name,
+    //         'money' => $request->money,
+    //         'path' => $path,
+    //         ]);
+    //     dd($shop);
+   
+         $filename = $request->image->getClientOriginalName();
+
+        //画像を保存して、そのパスを$imgに保存　第三引数に'public'を指定
+       
         $input_shop = $request['shop'];
         $input_genres = $request->genres_array;
-        
-        $shop->fill($input_shop)->save();
+        $shop->fill($input_shop);
         $shop->genres()->attach($input_genres);
-        // dump($shop);
+        // $file_path = $request->image->getClientOriginalName();
+        // $img = $request->image->storeAs('', $file_path,'public');
         
-        //  dd($shop->genres());
+        // $picture = new Picture(['path' =>$img ]);
+        // dd($picture);
+      
+         $shop->image = $request->image->storeAs('',$filename,'public');
+    //   dd($shop);
+        $shop->save();
+        
+        // $file_path = \DB::table('file_path')->
+        
+        // $shop->pictures()->attach($picture);
+        
+          
+        
+       
+        
+        //  dd($shop);
         return redirect('/shop/show/' . $shop->id);
     }
     
@@ -73,7 +109,7 @@ class ShopController extends Controller
         return redirect('/shop/show/' . $shop->id);
     }
     
-    public function delete(Shop $shop)
+    public function destory(Shop $shop)
     {
         $shop->delete();
         return redirect('/');

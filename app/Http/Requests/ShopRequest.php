@@ -29,4 +29,12 @@ class ShopRequest extends FormRequest
             
         ];
     }
+    
+    public function attributes()
+    {
+        return[
+            'shop.name' => '店名',
+            'shop.money' => '金額',
+            ];
+    }
 }

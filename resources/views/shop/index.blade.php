@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-          <h1>予算以下に収まるようにランダムで3店舗紹介します</h1>
+@section('content')
+          <div class="font-weight-bold">予算以下に収まるようにランダムで3店舗紹介します</div>
         <form action='/serch/random' method="POST">
         @csrf
         @method('GET')
@@ -20,13 +11,15 @@
             <option value="1000">1000円</option>
             <option value="2000">2000円</option>
             <option value="3000">3000円</option>
+            <option value="4000">4000円</option>
+            <option value="5000">5000円</option>
         </select></p>
          
-         <input type="submit" value="送信"/>
+         <input type="submit" value='検索' class="btn btn-success"/>
          </form>
          <div>
              <div>
-             <h1>予算以下の店舗を検索します</h1>
+             <div class="font-weight-bold">予算以下の店舗を検索します</div>
         <form action='/shop/show' method="POST">
         @csrf
         @method('GET')
@@ -40,6 +33,7 @@
         </select></p>
         </div>
           <div>
+              <div class="font-weight-bold">ジャンルを絞って検索</div>
              @foreach($genres as $genre)
              <label>
                  <input type='checkbox'  value="{{ $genre->genre_name }}" name="genre_name">
@@ -48,10 +42,9 @@
              </label>
              @endforeach
          </div>
-         <input type="submit" value="送信"/>
+         <input type="submit" value="検索" class="btn btn-success"/>
          </form>
          </div>
          </div>
-         <a href='/'>ホームに戻る</a>
-    </body>
-</html>
+         <!--<a href='/'>ホームに戻る</a>-->
+@endsection
