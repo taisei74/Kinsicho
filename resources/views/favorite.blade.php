@@ -9,21 +9,23 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
-    <div>
-        <div>
     <body>
-        <h2>
-     @foreach($shops as $shop)
-     {{ $shop->name }}
-     @endforeach
-     </h2>
-    </body>
-    </div>
-    <div>
-        <h2><a href='/favorite/plan'>プラン作成</a></h2>
-    </div>
-    <div>
-        <h3><a href='/favorite/plan/index'>プランランキング</a></h3>
-    </div>
-    </div>
+        
+        <div>
+            <div class="container">
+                <h2>お気に入り登録店舗一覧</h2>
+            @foreach($shops as $shop)
+                <ul>
+                    <li><a href='/shop/show/{{ $shop->id }}'>{{ $shop->name }}</a></li>
+                </ul>
+            @endforeach
+                </div>
+                <div>
+                    <h2><a href='/favorite/plan'>プラン作成</a></h2>
+                </div>
+                <div>
+                    <h3><a href='/favorite/plan/index'>プランランキング</a></h3>
+                </div>
+        </div>
+     </body>
 </html>

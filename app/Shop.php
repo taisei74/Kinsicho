@@ -10,6 +10,7 @@ class Shop extends Model
                 'name',
                 'money',
                 'body',
+                'image',
         ];
         
     // public function getPaginateByLimit(int $limit_count = 5)
@@ -34,5 +35,10 @@ class Shop extends Model
     public function plans()
     {
         return $this->belongsToMany('App\Plan');
+    }
+    
+    public function pictures()
+    {
+        return $this->belongsToMany('App\Picture');
     }
 }

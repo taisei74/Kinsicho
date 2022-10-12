@@ -12,7 +12,7 @@
     <body>
         <div>
         <h1>登録画面</h1>
-            <form action='/shop/show/create' method='POSt'>
+            <form action='/shop/show/create' method='POSt' enctype="multipart/form-data">
                 @csrf
                 <div>
                     <label>建物登録</label>
@@ -21,8 +21,17 @@
                 </div>
                 <div>
                     <label>金額登録</label>
-                    <input type="text" name="shop[money]" placeholer="例:2000円"/>
-                    <p class="money__error" style="color:red">{{ $errors->first('shop.money') }}</p>
+                    <!--<input type="text" name="shop[money]" placeholer="例:2000円"/>-->
+                    <!--<p class="money__error" style="color:red"></p>-->
+                            <select class="form-control" id="money" name="shop[money]">
+                                <option value="500">500円</option>
+                                <option value="1000">1000円</option>
+                                <option value="1500">1500円</option>
+                                <option value="2000">2000円</option>
+                                <option value="2500">2500円</option>
+                                <option value="3000">3000円</option>
+                                <option value="0">0円</option>
+                            </select>
                 </div>
                 <div>
                      <label>店舗紹介</label>
@@ -38,7 +47,11 @@
                 </label>
                 @endforeach
                 <div>
-                <button type='submit'>送信</button>
+                    <div>
+                        <label for="image">画像登録</label>
+                        <input type="file" class="form-control-file" name="image">
+                    </div>
+                <button type='submit' class="btn btn-primary btn-lg">送信</button>
                 </div>
             </form>
     </div>

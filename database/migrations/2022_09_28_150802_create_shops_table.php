@@ -18,6 +18,7 @@ class CreateShopsTable extends Migration
             $table->string('name', 50);
             $table->integer('money');
             $table->string('body', 500)->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

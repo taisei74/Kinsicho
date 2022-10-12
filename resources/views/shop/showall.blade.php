@@ -14,7 +14,7 @@
 
     </head>
     <body>
-        <p><a href='/shop/show/{{ $shop->id }}/edit'>編集</a></p>
+        
         <h1 class="title">
             {{ $shop->name }}
         </h1>
@@ -30,10 +30,10 @@
                 お店のジャンルは{{ $genre->genre_name }}
                 @endforeach
             </div>
-         
-         
-         <span>
-<img src="{{asset('img/nicebutton.png')}}" width="30px">
+        <div class="picture">
+        <img src="{{asset('storage/'.$shop->image) }}"　width="250px" height="300px">
+         </div>
+
  
 <!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
 @if($like)
@@ -56,18 +56,21 @@
 	</a>
 @endif
 </span>
-
-
-
-
         </div>
-        <div>
+       
+        <p><a href='/shop/show/{{ $shop->id }}/edit'>編集</a></p>
+     <div>
             <form action='/shop/show/{{ $shop->id }}' id="form_{{ $shop->id }}" method='POST' style='display:inline'>
-                @csrf
-                @method('DELETE')
-                <button type="submit">削除</button>
-            </form>
-        </div>
+              @csrf
+                  @method('DELETE')
+                  <div class="modal-body">
+                    {{ $shop->name }}を削除します。よろしいですか？
+                  </div>
+                 <button type='submit'>削除</button>
+                </form>
+              </div>
+        
+        
         <div class="footer">
             <a href="/">戻る</a>
         </div>

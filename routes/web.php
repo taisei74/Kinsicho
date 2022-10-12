@@ -18,8 +18,8 @@ Route::get('/serch', 'ShopController@index');
 Route::get('/serch', 'ShopController@serch');
 Route::get('/serch/random', 'SerchController@randomshow');
 
-Route::get('/shop/show/create', 'ShopController@createShow');
-Route::post('/shop/show/create', 'ShopController@create');
+Route::get('/shop/show/create', 'ShopController@createShow')->middleware('auth');
+Route::post('/shop/show/create', 'ShopController@create')->middleware('auth');
 
 Route::get('/shop', 'ShopController@show');
 Route::get('/shop/show', 'SerchController@showserch');
@@ -27,7 +27,7 @@ Route::get('/shop/show/{shop}', 'ShopController@showall');
 
 Route::get('/shop/show/{shop}/edit', 'ShopController@edit');
 Route::put('/shop/show/{shop}', 'ShopController@update');
-Route::delete('/shop/show/{shop}', 'ShopController@delete');
+Route::delete('/shop/show/{shop}', 'ShopController@destory');
 
 Route::get('/favorite' , 'LikeController@showFavorite');
 Route::get('/favorite/plan', 'PlanController@plan');

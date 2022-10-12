@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -35,7 +35,10 @@
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
-
+@auth
+<p class="navbar-nav ml-auto"><a href="/shop/show/create">店舗登録</a></p>
+<p class="navbar-nav ml-auto"><a href="/favorite">お気に入り店舗</a></p>
+@endauth
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
