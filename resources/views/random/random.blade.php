@@ -15,11 +15,17 @@
         @if(isset($randoms))
         <table class="table">
           <tr>
-            <th>店名</th><th>金額</th>
+            <th>店名</th><th>金額</th><th></th><th>紹介</th>
           </tr>
           @foreach($randoms as $shop)
             <tr>
               <td>{{$shop->name}}</td><td>{{$shop->money}}円</td>
+              <td>
+                @if(isset($shop->image))
+                <img src="{{ asset('storage/'.$shop->image) }}" width="250px" height="300px">
+                </td>
+                @endif
+                <td>{{ $shop->body }}</td>
             </tr>
           @endforeach
           <h1>合計{{ $total }}円です</h1>

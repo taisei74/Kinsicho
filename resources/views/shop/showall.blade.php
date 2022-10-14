@@ -69,7 +69,18 @@
                  <button type='submit'>削除</button>
                 </form>
               </div>
+        <div id="map" style="height:500px">
         
+	</div>
+	<script>
+	const lat = {{ $shop->lat }};
+	
+	const lng = {{ $shop->lng }};
+	</script>
+
+
+	<script src="{{ asset('/js/result.js') }}"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCI94DFBvjIw2fTcG8VKvMnJbS-ACUmyOs&callback=initMap" async defer></script>
         
         <div class="footer">
             <a href="/">戻る</a>

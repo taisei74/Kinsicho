@@ -39,7 +39,6 @@ class ShopController extends Controller
     {
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
         
-        
         return view('shop/showall')->with(['shop' => $shop, 'like'=>$like]);
     }
     
