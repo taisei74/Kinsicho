@@ -52,8 +52,34 @@
                         <input type="file" class="form-control-file" name="image">
                     </div>
                 <button type='submit' class="btn btn-primary btn-lg">送信</button>
+                 </form>
                 </div>
-            </form>
+                <p><label><span>緯度:</span> <input type="text" id="lat" name="shop[lat]"></label><br/>
+<label><span>経度:</span> <input type="text" id="lng" name="shop[lng]"> </label></p>
+
+                	<div id="form">
+<h2>緯度･経度を求める住所を入力</h2>
+<input type="text" id="address" value="東京都千代田区霞が関1-3-1" />
+<button id="exec">検索</button>
+<!--<p><label><span>緯度:</span> <input type="text" id="lat" name="shop[lat]"></label><br/>-->
+<!--<label><span>経度:</span> <input type="text" id="lng" name="shop[lng]"> </label></p>-->
+</div>
+<script>
+document.getElementById('exec').addEventListener('click', () => {
+if (document.getElementById('address').value) {
+getLatLng(document.getElementById('address').value, (latlng) => {
+// map.setCenter(latlng)
+console.log(latlng.lat, latlng.lng);
+document.getElementById('lat').value = latlng.lat;
+document.getElementById('lng').value = latlng.lng;
+})
+}
+})
+</script>
+
+ <script src="https://cdn.geolonia.com/community-geocoder.js"></script>	
+ 
+           
     </div>
     </body>
 </html>
