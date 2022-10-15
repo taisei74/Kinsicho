@@ -11,8 +11,7 @@ class Shop extends Model
                 'money',
                 'body',
                 'image',
-                'lat',
-                'lng',
+                'address',
         ];
         
     // public function getPaginateByLimit(int $limit_count = 5)

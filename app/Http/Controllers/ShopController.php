@@ -38,7 +38,7 @@ class ShopController extends Controller
     public function showall(Shop $shop)
     {
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
-        
+        // dd($shop);
         return view('shop/showall')->with(['shop' => $shop, 'like'=>$like]);
     }
     
@@ -61,15 +61,18 @@ class ShopController extends Controller
     //         'money' => $request->money,
     //         'path' => $path,
     //         ]);
-    //     dd($shop);
+        
    
          $filename = $request->image->getClientOriginalName();
 
         //画像を保存して、そのパスを$imgに保存　第三引数に'public'を指定
        
         $input_shop = $request['shop'];
+        // dd($input_shop);
         $input_genres = $request->genres_array;
         $shop->fill($input_shop);
+        $shop->image = $request->image->storeAs('',$filename,'public');
+        $shop->save();
         $shop->genres()->attach($input_genres);
         // $file_path = $request->image->getClientOriginalName();
         // $img = $request->image->storeAs('', $file_path,'public');
@@ -77,9 +80,9 @@ class ShopController extends Controller
         // $picture = new Picture(['path' =>$img ]);
         // dd($picture);
       
-         $shop->image = $request->image->storeAs('',$filename,'public');
+         
     //   dd($shop);
-        $shop->save();
+        // $shop->save();
         
         // $file_path = \DB::table('file_path')->
         

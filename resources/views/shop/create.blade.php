@@ -37,6 +37,7 @@
                      <label>店舗紹介</label>
                     <textarea name="shop[body]" placeholer="例:店舗の紹介です。"></textarea>
                 </div>
+                <div>
                 <h2>ジャンル登録</h2>
                 @foreach($genres as $genre)
                 <label>
@@ -46,6 +47,11 @@
                 </input>
                 </label>
                 @endforeach
+                </div>
+                <div>
+                    <label>住所登録</label>
+                    <input type="text" class="form-control" name="shop[address]">
+                </div>
                 <div>
                     <div>
                         <label for="image">画像登録</label>
@@ -53,33 +59,8 @@
                     </div>
                 <button type='submit' class="btn btn-primary btn-lg">送信</button>
                  </form>
-                </div>
-                <p><label><span>緯度:</span> <input type="text" id="lat" name="shop[lat]"></label><br/>
-<label><span>経度:</span> <input type="text" id="lng" name="shop[lng]"> </label></p>
+               
 
-                	<div id="form">
-<h2>緯度･経度を求める住所を入力</h2>
-<input type="text" id="address" value="東京都千代田区霞が関1-3-1" />
-<button id="exec">検索</button>
-<!--<p><label><span>緯度:</span> <input type="text" id="lat" name="shop[lat]"></label><br/>-->
-<!--<label><span>経度:</span> <input type="text" id="lng" name="shop[lng]"> </label></p>-->
-</div>
-<script>
-document.getElementById('exec').addEventListener('click', () => {
-if (document.getElementById('address').value) {
-getLatLng(document.getElementById('address').value, (latlng) => {
-// map.setCenter(latlng)
-console.log(latlng.lat, latlng.lng);
-document.getElementById('lat').value = latlng.lat;
-document.getElementById('lng').value = latlng.lng;
-})
-}
-})
-</script>
-
- <script src="https://cdn.geolonia.com/community-geocoder.js"></script>	
- 
-           
     </div>
     </body>
 </html>
