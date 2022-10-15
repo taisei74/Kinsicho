@@ -14,10 +14,12 @@
 
     </head>
     <body>
-        
+        <div>
         <h1 class="title">
             {{ $shop->name }}
         </h1>
+                <p><a href='/shop/show/{{ $shop->id }}/edit'>編集</a></p>
+                </div>
         <div class="content">
             <div class="content__post">
                 <h3>金額</h3>
@@ -29,11 +31,15 @@
             
                 お店のジャンルは{{ $genre->genre_name }}
                 @endforeach
-            </div>
-        <div class="picture">
-        <img src="{{asset('storage/'.$shop->image) }}"　width="250px" height="300px">
-         </div>
-
+                </div>
+            <tr>
+                <td>
+                    <img src="{{asset('storage/'.$shop->image) }}"　width="250px" height="300px">
+                </td>
+                <td>
+                     <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config("services.google-map.apikey") }}&q={{ $shop->address }}' width='50%' height='300' frameborder='0'></iframe>
+                </td>
+            </tr>
  
 <!-- もし$niceがあれば＝ユーザーが「いいね」をしていたら -->
 @if($like)
@@ -57,31 +63,15 @@
 @endif
 </span>
         </div>
-       
-        <p><a href='/shop/show/{{ $shop->id }}/edit'>編集</a></p>
+     
      <div>
             <form action='/shop/show/{{ $shop->id }}' id="form_{{ $shop->id }}" method='POST' style='display:inline'>
               @csrf
                   @method('DELETE')
-                  <div class="modal-body">
-                    {{ $shop->name }}を削除します。よろしいですか？
-                  </div>
+                  
                  <button type='submit'>削除</button>
                 </form>
               </div>
-        <div id="map" style="height:500px">
-        
-	</div>
-	<script>
-	const lat = {{ $shop->lat }};
-	
-	const lng = {{ $shop->lng }};
-	</script>
-
-
-	<script src="{{ asset('/js/result.js') }}"></script>
-        <script src="https://maps.googleapis.com/maps/api/js?language=ja&region=JP&key=AIzaSyCI94DFBvjIw2fTcG8VKvMnJbS-ACUmyOs&callback=initMap" async defer></script>
-        
         <div class="footer">
             <a href="/">戻る</a>
         </div>

@@ -19,8 +19,7 @@ class CreateShopsTable extends Migration
             $table->integer('money');
             $table->string('body', 500)->nullable();
             $table->string('image')->nullable();
-            $table->double('lat',9,7);
-            $table->double('lng',10,7);
+            $table->string('address');
             $table->timestamps();
         });
     }
