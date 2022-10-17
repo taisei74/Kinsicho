@@ -17,6 +17,7 @@ class CreatePlansTable extends Migration
             $table->bigIncrements('id');
             $table->string('plan_name', 200);
             $table->text('plan_body', 4000);
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
             
             // $table->foreign('user_id')->references('id')->on('users');

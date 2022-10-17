@@ -23,8 +23,9 @@ class PlanController extends Controller
         $input_plan = $request['plan'];
         $input_plan_shops = $request->shops_array;
         
-        
+        $plan->user_id = $request->user()->id;
         $plan->fill($input_plan)->save();
+        
         $plan->plan_shops()->attach($input_plan_shops);
         // dd($plan->plan_shops);
         // dd($plan);

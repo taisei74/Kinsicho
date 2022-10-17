@@ -7,17 +7,27 @@ use App\Http\Requests\ShopRequest;
 use App\Shop;
 use App\Like;
 use App\Genre;
+use Auth;
 use Illuminate\Support\Str;
 class ShopController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->authorizeResource(Shop::class, 'shop');
-    // }
+    public function __construct()
+    {
+        $this->authorizeResource(Shop::class, 'shop');
+    }
     
     public function top()
     {
+        // $shop = Shop::all();
+        
+        // $shop = $shop->random(3);
+
+// dd($shop);
+
+        
+        // return view('top')->with(['shops' => $shop]);
         return view('top');
+
     }
     
     public function serch(Genre $genre)
@@ -37,9 +47,13 @@ class ShopController extends Controller
     }
     public function showall(Shop $shop)
     {
+        if( Auth::check() ){
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
         // dd($shop);
         return view('shop/showall')->with(['shop' => $shop, 'like'=>$like]);
+        } else {
+            return view('shop/showall')->with(['shop' => $shop]);
+        }
     }
     
     public function createShow(Genre $genre)
@@ -71,6 +85,7 @@ class ShopController extends Controller
         // dd($input_shop);
         $input_genres = $request->genres_array;
         $shop->fill($input_shop);
+        $shop->user_id = $request->user()->id;
         $shop->image = $request->image->storeAs('',$filename,'public');
         $shop->save();
         $shop->genres()->attach($input_genres);

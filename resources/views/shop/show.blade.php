@@ -10,6 +10,8 @@
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
     </head>
     <body>
+        <div class="container">
+            <div class="wrapper-top">
               <h1>検索結果</h1>
        <h2>予算{{ $message }}</h2>
         <table class="table">
@@ -25,6 +27,8 @@
         
   
            {{ $shops->appends(request()->input())->links() }}
+                </div>
+            </div>
         </div>
     </body>
 </html>
