@@ -20,6 +20,7 @@ class CreateShopsTable extends Migration
             $table->string('body', 500)->nullable();
             $table->string('image')->nullable();
             $table->string('address');
+            $table->integer('user_id')->unsigned();
             $table->timestamps();
         });
     }
