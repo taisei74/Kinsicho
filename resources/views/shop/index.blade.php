@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-          <div class="font-weight-bold">予算以下に収まるようにランダムで3店舗紹介します</div>
+<link rel="stylesheet" href="{{ asset('css/index.css') }}">
+    <div class="container">
+        <div class="serch-random">
+          <h3>予算以下に収まるようにランダムで3店舗紹介します</h3>
         <form action='/serch/random' method="POST">
         @csrf
         @method('GET')
@@ -17,9 +20,10 @@
          
          <input type="submit" value='検索' class="btn btn-success"/>
          </form>
+         </div>
          <div>
-             <div>
-             <div class="font-weight-bold">予算以下の店舗を検索します</div>
+             <div class="serch-all">
+             <h3>予算以下の店舗を検索します</h3>
         <form action='/shop/show' method="POST">
         @csrf
         @method('GET')
@@ -35,8 +39,8 @@
           <div>
               <div class="font-weight-bold">ジャンルを絞って検索</div>
              @foreach($genres as $genre)
-             <label>
-                 <input type='checkbox'  value="{{ $genre->genre_name }}" name="genre_name">
+             <label class="select-genre">
+                 <input type='checkbox'  value="{{ $genre->genre_name }}" name="genre_name" >
                  {{ $genre->genre_name }}
                  </input>
              </label>
@@ -44,6 +48,7 @@
          </div>
          <input type="submit" value="検索" class="btn btn-success"/>
          </form>
+         </div>
          </div>
          </div>
          <!--<a href='/'>ホームに戻る</a>-->

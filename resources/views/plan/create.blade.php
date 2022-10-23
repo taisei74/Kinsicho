@@ -1,26 +1,23 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-    <h1>プラン作成画面</h1>
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/plancreate.css') }}">
+<div class="container">
+    <div class="wrapper-top">
+        
+    <h1>プラン作成</h1>
     <div>
         <form action='/favorite/plan' method='POST'>
             @csrf
-            <div>
+            <div class='name'>
+                <h3>プラン名登録</h3>
             <input type='text' name='plan[plan_name]' placeholder="プラン名" >
             </div>
-            <div>
+            <div class='body'>
+                <h3>プラン概要</h3>
                 <input type='text' name='plan[plan_body]' placeholder="プラン説明">
             </div>
-            <div>
+            <div calss='select'>
                 @foreach($shops as $shop)
                 <label>
                     <input type="checkbox" value="{{ $shop->id }}" name="shops_array[]">
@@ -32,6 +29,8 @@
             <button type='submit'>送信</button>
         </form>
     </div>
-         <a href='/'>ホームに戻る</a>
-    </body>
-</html>
+         <a href='/favorite'>戻る</a>
+         
+    </div>
+</div>
+@endsection

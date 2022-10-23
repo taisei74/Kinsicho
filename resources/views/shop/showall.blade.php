@@ -1,19 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-    </head>
-    <body>
+<link rel="stylesheet" href="{{ asset('css/showall.css') }}">
+    <div class="container">
+        <div class="wrapper-top">
         <div>
             <h1 class="title">{{ $shop->name }}</h1> 
                 @if( Auth::id() === $shop->user_id )
@@ -27,12 +17,12 @@
                         <h3>紹介</h3>
                         <h4>{{ $shop->body }}</h4>
                 @foreach($shop->genres as $genre)
-                お店のジャンルは{{ $genre->genre_name }}
+                <h4>お店のジャンルは{{ $genre->genre_name }}</h4>
                 @endforeach
                 </div>
             <tr>
                 <td>
-                    <img src="{{asset('storage/'.$shop->image) }}"　width="250px" height="300px">
+                    <img src="{{asset('storage/'.$shop->image) }}" class="picture">
                 </td>
                 <td>
                      <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config("services.google-map.apikey") }}&q={{ $shop->address }}' width='50%' height='300' frameborder='0'></iframe>
@@ -59,7 +49,7 @@
                     <form action='/shop/show/{{ $shop->id }}' id="form_{{ $shop->id }}" method='POST' style='display:inline'>
                     @csrf
                     @method('DELETE')
-                    <button type='submit' name='delete' value='削除' onClick="return check()">削除</button>
+                    <button type='submit' name='delete' value='削除' onClick="return check()" class="btn btn-danger">削除</button>
                     <script>
                         function check() {
                             var checked = confirm("本当に削除しますか?");
@@ -73,10 +63,8 @@
             @endif
                 </form>
               </div>
-        <div class="footer">
-            <a href="/">戻る</a>
-        </div>
-       
-    </body>
-</html>
+            </div>
+          </div>
+    </div>
+  
 @endsection
