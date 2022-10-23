@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/create.css') }}">
+<div class='container'>
+    <div class='wrapper-top'>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
         <div>
         <h1>登録画面</h1>
             <form action='/shop/show/create' method='POSt' enctype="multipart/form-data">
@@ -23,7 +18,7 @@
                     <label>金額登録</label>
                     <!--<input type="text" name="shop[money]" placeholer="例:2000円"/>-->
                     <!--<p class="money__error" style="color:red"></p>-->
-                            <select class="form-control" id="money" name="shop[money]">
+                            <select class="form-control-money" id="money" name="shop[money]">
                                 <option value="500">500円</option>
                                 <option value="1000">1000円</option>
                                 <option value="1500">1500円</option>
@@ -50,7 +45,7 @@
                 </div>
                 <div>
                     <label>住所登録</label>
-                    <input type="text" class="form-control" name="shop[address]">
+                    <input type="text" class="form-control-address" name="shop[address]">
                 </div>
                 <div>
                     <div>
@@ -59,8 +54,8 @@
                     </div>
                 <button type='submit' class="btn btn-primary btn-lg">送信</button>
                  </form>
-               
 
+        </div>
     </div>
-    </body>
-</html>
+</div>
+@endsection

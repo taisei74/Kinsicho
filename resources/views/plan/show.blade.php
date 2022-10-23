@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
+@section('content')
+<link rel='stylesheet' href="{{ asset('css/planshow.css') }}">
+<div class='container'>
+    <div class='wrapper-top'>
+        
     <div>
        <h1>
         {{ $plan->plan_name }}
@@ -47,5 +42,7 @@
             <a href="/favorite">戻る</a>
         </div>
     </div>
-    </body>
-</html>
+    
+    </div>
+</div>
+@endsection

@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-    </head>
-    <body>
-     
+@section('content')
+<link rel="stylesheet" href="{{ asset('css/random.css') }}">
+  <div class="container">
+    <div class="wrapper-top">
+      
         <h1>検索結果</h1>
         @if(isset($randoms))
         <table class="table">
           <tr>
-            <th>店名</th><th>金額</th><th></th><th>紹介</th>
+            <th>店名</th><th>金額</th><th>店舗写真</th><th>紹介</th>
           </tr>
           @foreach($randoms as $shop)
             <tr>
-              <td>{{$shop->name}}</td><td>{{$shop->money}}円</td>
+              <td><a href="/shop/show/{{ $shop->id }}">{{$shop->name}}</a></td><td>{{$shop->money}}円</td>
               <td>
                 @if(isset($shop->image))
                 <img src="{{ asset('storage/'.$shop->image) }}" width="250px" height="300px">
@@ -35,5 +29,6 @@
         @endif
         </div>
       <h4>[<a href='/serch'>プラン検索画面に戻る</a>]</h4>
-    </body>
-</html>
+        </div>
+  </div>
+@endsection

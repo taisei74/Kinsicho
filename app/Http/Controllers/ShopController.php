@@ -50,6 +50,8 @@ class ShopController extends Controller
         if( Auth::check() ){
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
         // dd($shop);
+        
+        //  $shops = Plan::withCount('plan_likes')->orderBy('plan_likes_count', 'desc')->get();
         return view('shop/showall')->with(['shop' => $shop, 'like'=>$like]);
         } else {
             return view('shop/showall')->with(['shop' => $shop]);
