@@ -23,21 +23,14 @@ class SerchController extends Controller
                             ->whereHas('genres', function($q) use($keyword_genre){
                             $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
                             
-        //   dump($shops);
-            //  $message = $keyword_money."円以下の検索が完了しました。";
-            //  return view('show/shop')->with([
-            //      'shops' => $shops,
-            //      'genre' => $genre,
-            //      'message' => $message,
-            //      ]);
+    
          }elseif(!empty($keyword_money) && empty($keyword_genre)) {
             
              $shops = $query->where('money', '<=', $keyword_money)->paginate(10);
              
          }elseif(empty($keyword_money) && !empty($keyword_genre)) {
              
-            //  $query_genre = Genre::query();
-            //  $genres = $query_genre->where('ganre_name', 'like', '%'.$keyword_genre.'%')->paginate(10);
+           
              $shops = $query->whereHas('genres', function($q) use($keyword_genre){
                                 $q->where('genre_name', 'like','%'.$keyword_genre. '%');})->paginate(10);
                                 
@@ -85,18 +78,17 @@ class SerchController extends Controller
             
             $sho = ($randoms)->toArray();
             $shops_total = array_sum(array_column($sho, 'money'));
-        //  print_r($shops_total);
+        
               if( $shops_total <= $integer){
                   $check = 1;
-                //   print_r('@@@@@@@@');
-                //  print_r($check);
+             
               }else{
                 //   print_r('********');
                   $check = 0;
-                //   dd($check);
+              
               }
          }
-            //  dump($check);
+            
          }
              $message_random = $keyword_money_random."円以下の検索が完了しました。";
             //  print_r('11111111111');
