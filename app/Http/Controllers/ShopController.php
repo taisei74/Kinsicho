@@ -11,6 +11,7 @@ use Auth;
 use Illuminate\Support\Str;
 class ShopController extends Controller
 {
+    //ログインユーザー認証
     public function __construct()
     {
         $this->authorizeResource(Shop::class, 'shop');
@@ -18,15 +19,15 @@ class ShopController extends Controller
     
     public function top()
     {
-        // $shop = Shop::all();
+        $shop = Shop::all();
         
-        // $shop = $shop->random(3);
+        $shop = $shop->random(3);
 
 // dd($shop);
 
         
-        // return view('top')->with(['shops' => $shop]);
-        return view('top');
+        return view('top')->with(['shops' => $shop]);
+        // return view('top');
 
     }
     
@@ -47,6 +48,7 @@ class ShopController extends Controller
     }
     public function showall(Shop $shop)
     {
+        //ログインユーザー表示
         if( Auth::check() ){
         $like=Like::where('shop_id', $shop->id)->where('user_id', auth()->user()->id)->first();
         // dd($shop);

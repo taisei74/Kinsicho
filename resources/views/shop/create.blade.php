@@ -46,6 +46,7 @@
                 <div>
                     <label>住所登録</label>
                     <input type="text" class="form-control-address" name="shop[address]">
+                     <p class="address__error" style="color:red">{{ $errors->first('shop.address') }}</p>
                 </div>
                 <div>
                     <div>

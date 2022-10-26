@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class ShopRequest extends FormRequest
+class PlanRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,18 +24,16 @@ class ShopRequest extends FormRequest
     public function rules()
     {
         return [
-            'shop.name' => 'required|string|max:100',
-            'shop.money' => 'required|integer',
-            'shop.address' => 'required',
+            'plan.plan_name' => 'required|string',
+            'plan.plan_body' => 'required|string',
         ];
     }
     
     public function attributes()
     {
         return[
-            'shop.name' => '店名',
-            'shop.money' => '金額',
-            'shop.address' => '住所',
+            'plan.plan_name' => 'プラン名',
+            'plan.plan_body' => 'プラン概要',
             ];
     }
 }
