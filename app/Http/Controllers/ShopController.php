@@ -19,15 +19,15 @@ class ShopController extends Controller
     
     public function top()
     {
-        $shop = Shop::all();
+        // $shop = Shop::all();
         
-        $shop = $shop->random(3);
+        // $shop = $shop->random(3);
 
 // dd($shop);
 
         
-        return view('top')->with(['shops' => $shop]);
-        // return view('top');
+        // return view('top')->with(['shops' => $shop]);
+        return view('top');
 
     }
     
