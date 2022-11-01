@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/show.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/show.css') }}">
     <div class="container">
         <div class="wrapper-top">
             <h1>検索結果</h1>

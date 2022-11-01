@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/random.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/random.css') }}">
   <div class="container">
     <div class="wrapper-top">
       
@@ -16,7 +16,7 @@
               <td><a href="/shop/show/{{ $shop->id }}">{{$shop->name}}</a></td><td>{{$shop->money}}円</td>
               <td>
                 @if(isset($shop->image))
-                <img src="{{ asset('storage/'.$shop->image) }}" width="250px" height="300px">
+                <img src="{{ secure_asset('storage/'.$shop->image) }}" width="250px" height="300px">
                 </td>
                 @endif
                 <td>{{ $shop->body }}</td>

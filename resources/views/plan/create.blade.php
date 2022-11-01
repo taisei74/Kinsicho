@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/plancreate.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/plancreate.css') }}">
 <div class="container">
     <div class="wrapper-top">
         

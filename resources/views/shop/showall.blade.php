@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/showall.css') }}">
+<link rel="stylesheet" href="{{ secure_asset('css/showall.css') }}">
     <div class="container">
         <div class="wrapper-top">
         <div>
@@ -22,7 +22,7 @@
                 </div>
             <tr>
                 <td>
-                    <img src="{{asset('storage/'.$shop->image) }}" class="picture">
+                    <img src="{{ secure_asset('storage/'.$shop->image) }}" class="picture">
                 </td>
                 <td>
                      <iframe id='map' src='https://www.google.com/maps/embed/v1/place?key={{ config("services.google-map.apikey") }}&q={{ $shop->address }}' width='50%' height='300' frameborder='0'></iframe>
