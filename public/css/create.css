@@ -1,0 +1,33 @@
+body {
+    background-image: url('../storage/スカイツリー.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.form-control-money {
+    width: 150px;
+}
+
+.form-control-address {
+    width: 300px;
+}
+
+.image {
+    color: white;
+}
+
+.form-control-file {
+    color: white;
+}

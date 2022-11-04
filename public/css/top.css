@@ -1,0 +1,36 @@
+         a:hover {
+    color: orange;
+}
+
+
+.yosan a {
+    text-decoration: none;
+    width: 240px;
+    height: 100px;
+    background-color: blue;
+    color: white;
+    display: block;
+    border-radius: 40px;
+    text-align: center;
+    line-height: 100px;
+   /*padding-left: 150px;*/
+   margin: auto;
+}
+
+.pictures img{
+    margin: auto;
+    border-radius: 40px;
+}
+
+body {
+    background-image:url(../storage/スカイツリー.jpg);
+    background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+    color: white;
+}
+
+
+

@@ -1,0 +1,28 @@
+body {
+    background-image: url(../storage/スカイツリー.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+h1 {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+.table {
+    color: white;
+}
+
+/*.likes {*/
+/*    margin: 0 40px;*/
+/*}*/
+
+a {
+    text-decoration:none; 
+}
+
+a:hover {
+    color: orange;
+}

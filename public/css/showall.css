@@ -1,0 +1,30 @@
+body  {
+    background-image: url('../storage/スカイツリー.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: white;
+}
+
+h3 {
+    color:  white;
+}
+
+h4 {
+    color: white;
+}
+
+.picture {
+    width:250px; 
+    height:300px;
+}
+
+a:hover {
+    color:orange;
+}
+
+/*.map {*/
+/*    float:right;*/
+/*}*/
