@@ -1,0 +1,29 @@
+body {
+    background-image: url('../storage/スカイツリー.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+h1 {
+    color: white;
+}
+
+label {
+    color: white;
+}
+
+.name {
+    padding: 30px;
+}
+
+.body {
+    padding: 30px;
+}
+
+.select {
+    padding-bottom: 30px;
+}
+
+h3 {
+    color: white;
+}
