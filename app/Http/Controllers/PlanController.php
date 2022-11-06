@@ -42,7 +42,7 @@ class PlanController extends Controller
     
     public function index()
     {
-        $plans = Plan::withCount('plan_likes')->orderBy('plan_likes_count', 'desc')->get();
+        $plans = Plan::withCount('plan_likes')->orderBy('plan_likes_count', 'desc')->paginate(10);
         return view('plan/index')->with(['plans' => $plans]);
     }
     public function delete(Plan $plan)
