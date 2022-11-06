@@ -20,15 +20,18 @@ class ShopController extends Controller
     public function top()
     {
         // $shop = Shop::all();
+        if( Auth::check() ){
+        $shop = Shop::where('user_id', auth()->user()->id)->get();
         
+        // dd($shop);
         // $shop = $shop->random(3);
-
-// dd($shop);
 
         
         // return view('top')->with(['shops' => $shop]);
+        return view('top')->with(['shops' => $shop]);
+        }else{
         return view('top');
-
+    }
     }
     
     public function serch(Genre $genre)
