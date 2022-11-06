@@ -11,8 +11,11 @@
        </h1>
        <h3> {{ $plan->plan_body }}</h3>
        @foreach($plan->plan_shops as $shop)
-       <h1>店名:{{ $shop->name }}</h1>
-       <h1>{{ $shop->money }}円</h1>
+       <h3>店名:<a href="/shop/show/{{ $shop->id }}">{{ $shop->name }}</a></h3>
+       <h3>{{ $shop->money }}円</h3>
+                @if(isset($shop->image))
+                <img src="{{ secure_asset('storage/'.$shop->image) }}" width="250px" height="300px">
+                @endif
        @endforeach
     </div>
     <div>
@@ -32,16 +35,19 @@
         </a>
         @endif
     </div>
+    @if( Auth::id() === $plan->user_id )
     <div>
         <form action="/favorite/plan/{{ $plan->id }}" id="form_{{ $plan->id }}" method="POST" style="display:inline">
             @csrf
             @method('DELETE')
             <button type="submit">削除</button>
         </form>
+        @endif
+        </div>
         <div>
             <a href="/favorite">戻る</a>
         </div>
-    </div>
+    
     
     </div>
 </div>

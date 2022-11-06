@@ -9,10 +9,14 @@
                 <h1>プランいいね数ランキング</h1>
             </div>
             <div>
-                @foreach($plans as $key => $plan)
-                <h4>{{ $key + 1 }}位<a href='/favorite/plan/{{ $plan->id }}'>{{ $plan->plan_name }}</a>いいね数:{{ $plan->plan_likes->count() }}</h4><h5>作成者:{{ $plan->user->name }}</h5>
-                @endforeach
+                @foreach($plans as $plan_key => $plan)
+                <h4>{{ $plans->firstItem()+$plan_key }}位<a href='/favorite/plan/{{ $plan->id }}'>{{ $plan->plan_name }}</a>いいね数:{{ $plan->plan_likes->count() }}</h4><h5>作成者:{{ $plan->user->name }}</h5>
+                 @endforeach
             </div>
+             <div class="footer">
+                    {{ $plans->links() }}
+                </div>
+               
            </div>
     </div>
         
