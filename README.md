@@ -8,19 +8,14 @@
 </p>
 
 ## 錦糸町プラン検索アプリ
+全ユーザー  
+- 錦糸町の施設を予算を指定して調べることができる。
+- また、予算を指定して予算以下に収まるようにランダムで3店舗紹介する。
 
-is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
-
+ログインユーザー  
+- 錦糸町の店舗登録・削除・編集をできるようにする。
+- 気に入った店舗をお気に入り登録をして一覧表示できるようにする。
+- お気に入り登録した店舗から複数店舗を選びおすすめのプランとして登録できるようにする。
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
