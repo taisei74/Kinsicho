@@ -1,2 +1,10 @@
 *
 !.gitignore
+
+; *
+; !public/
+; !.gitignore
+
+
+; /public/uploads/
+
