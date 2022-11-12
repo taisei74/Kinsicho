@@ -5,9 +5,12 @@
 <div class="container">
         <div class="wrapper-top">
             <h1>錦糸町で遊ぼう</h1>
+            <h2>作成店舗</h2>
             @if(!empty($shops))
       @foreach($shops as $shop)
-      {{ $shop->name }}
+      <ul type="circle">
+        <li><a href="/shop/show/{{ $shop->id }}">{{ $shop->name }}</a></li>
+      </ul>
       @endforeach
       @endif
          <div class='yosan'>
