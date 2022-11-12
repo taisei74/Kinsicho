@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+<link rel="stylesheet" href="{{ asset('css/edit.css') }}">
         <div class="container">
             <div class="wrapper-top">
             <form action='/shop/show/{{ $shop->id }}' method='POSt' enctype="multipart/form-data">
@@ -32,7 +32,9 @@
                 </input>
                 </label>
                 @endforeach
+                <div>
             <button type='submit'>編集完了</button>
+                <div></div>
             </form>
         </div>
         <div class="footer">
