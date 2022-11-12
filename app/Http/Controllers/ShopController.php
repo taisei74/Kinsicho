@@ -126,10 +126,27 @@ class ShopController extends Controller
     public function update(Shop $shop, ShopRequest $request)
     {
         $input_edit = $request['shop'];
+        
+        $shop->fill($input_edit);
+        
+        // dd($shop);
+        if(!empty($request->image)) {
+           
+            
+            $filename = $request->image->getClientOriginalName();
+            $request->image->storeAs('',$filename,'public');
+            $shop->image = $request->image->storeAs('',$filename,'public');
+        }else {
+            $shop->image = $shop->image;
+        }
+         
+       
+         $shop->save();
+        
         $input_editgenres = $request->genres_array;
-        $shop->fill($input_edit)->save();
+       
          $shop->genres()->attach($input_editgenres);
-      
+    
         return redirect('/shop/show/' . $shop->id);
     }
     
