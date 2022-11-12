@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
-
-    </head>
-    <body>
-       
-        </h1>
-        <div class="content">
-            <form action='/shop/show/{{ $shop->id }}' method='POSt'>
+        <div class="container">
+            <div class="wrapper-top">
+            <form action='/shop/show/{{ $shop->id }}' method='POSt' enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="content__post">
@@ -23,8 +13,17 @@
                 <h3>金額編集</h3>
                 <input type='text' name='shop[money]' value='{{ $shop->money }}'/>
                 <h3>紹介</h3>
-                <input tupe='text' name='shop[body]' value='{{ $shop->body }}'/>
+                <input type='text' name='shop[body]' value='{{ $shop->body }}'/>
+                <h3>住所編集</h3>
+                <input type='text' name='shop[address]' value='{{ $shop->address }}'/>
             </div>
+            
+             <div>
+                        <label for="image">画像登録</label>
+                        <input type="file" class="form-control-file" name="image">
+                    </div>
+            
+            
             @foreach($genres as $genre)
             <label>
                    
@@ -39,5 +38,5 @@
         <div class="footer">
             <a href="/">戻る</a>
         </div>
-    </body>
-</html>
+        </div>
+@endsection
