@@ -7,6 +7,7 @@ use App\Http\Requests\ShopRequest;
 use App\Shop;
 use App\Like;
 use App\Genre;
+use App\Plan;
 use Auth;
 use Illuminate\Support\Str;
 class ShopController extends Controller
@@ -22,13 +23,13 @@ class ShopController extends Controller
         // $shop = Shop::all();
         if( Auth::check() ){
         $shop = Shop::where('user_id', auth()->user()->id)->get();
-        
-        // dd($shop);
+        $plan = Plan::where('user_id', auth()->user()->id)->get();
+        // dd($plan);
         // $shop = $shop->random(3);
 
         
         // return view('top')->with(['shops' => $shop]);
-        return view('top')->with(['shops' => $shop]);
+        return view('top')->with(['shops' => $shop, 'plans' => $plan]);
         }else{
         return view('top');
     }

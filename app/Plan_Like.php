@@ -19,4 +19,6 @@ class Plan_Like extends Model
     {
         return $this->belongsTo('App\Shop');
     }
+    
+    protected $dates = ['deleted_at'];
 }
