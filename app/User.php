@@ -61,4 +61,9 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Plan_Like');
     }
+    
+    public function like_plans()
+    {
+        return $this->belongsToMany(Plan::class, 'plan__likes', 'user_id', 'plan_id');
+    }
 }

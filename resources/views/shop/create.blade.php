@@ -52,6 +52,7 @@
                     <div>
                         <label for="image">画像登録</label>
                         <input type="file" class="form-control-file" name="image">
+                        <p class="image__error" style="color:red">{{ $errors->first('shop.image') }}</p>
                     </div>
                 <button type='submit' class="btn btn-primary btn-lg">送信</button>
                  </form>

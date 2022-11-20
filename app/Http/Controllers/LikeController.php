@@ -38,8 +38,12 @@ class LikeController extends Controller
     public function showFavorite()
     {
         $shops = \Auth::user()->like_shops()->orderBy('created_at', 'desc')->get();
+        
+        $plans = \Auth::user()->like_plans()->orderBy('created_at', 'desc')->where('deleted_at', null)->get();
+        
+        // dd($plans);
        
-        return view('favorite')->with(["shops" => $shops]);
+        return view('favorite')->with(["shops" => $shops, "plans" => $plans]);
     }
     
     public function plan_like(Plan $plan, Request $request)
@@ -48,7 +52,7 @@ class LikeController extends Controller
         $plan_like->plan_id = $plan->id;
         $plan_like->user_id = Auth::user()->id;
         $plan_like->save();
-        
+       
         return back();
     }
     
@@ -57,7 +61,7 @@ class LikeController extends Controller
         $user = Auth::user()->id;
         $plan_like = Plan_Like::where('plan_id', $plan->id)->where('user_id', $user)->first();
         $plan_like->delete();
-        
+        // dd($plan_like);
         return back();
     }
 }

@@ -13,6 +13,14 @@
                 </ul>
             @endforeach
             </div>
+            <div>
+                <h2>お気に入りプラン一覧</h2>
+                @foreach($plans as $plan)
+                <ul>
+                    <li><a href='/favorite/plan/{{ $plan->id }}'>{{ $plan->plan_name }}</a></li>
+                </ul>
+                @endforeach
+            </div>
                 <div>
                     <h2><a href='/favorite/plan'>プラン作成</a></h2>
                 </div>
