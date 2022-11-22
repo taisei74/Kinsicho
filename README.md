@@ -30,9 +30,10 @@
 
 
 
-## Contributing
+## インフラ構成図
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+![インフラスクショ](https://user-images.githubusercontent.com/111099884/203226583-7c62c553-9ca1-410b-9fc9-1209b3434b8d.png)
+
 
 ## Code of Conduct
 
