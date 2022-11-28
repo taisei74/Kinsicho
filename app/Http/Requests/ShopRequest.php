@@ -27,7 +27,6 @@ class ShopRequest extends FormRequest
             'shop.name' => 'required|string|max:100',
             'shop.money' => 'required|integer',
             'shop.address' => 'required',
-            'shop.image' => 'required',
         ];
     }
     
@@ -37,7 +36,6 @@ class ShopRequest extends FormRequest
             'shop.name' => '店名',
             'shop.money' => '金額',
             'shop.address' => '住所',
-            'shop.image'  => '店舗画像',
             ];
     }
 }

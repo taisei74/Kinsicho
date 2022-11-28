@@ -10,7 +10,6 @@ class Shop extends Model
                 'name',
                 'money',
                 'body',
-                'image',
                 'address',
         ];
         
